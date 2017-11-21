@@ -1,4 +1,6 @@
-window.renderStatistics = function(ctx, names, times) {
+'use strict';
+
+window.renderStatistics = function (ctx, names, times) {
   var barWidth = 40;
   var initialBarX = 130;
   var initialBarY = 250;
@@ -10,11 +12,11 @@ window.renderStatistics = function(ctx, names, times) {
   var maxTime = -1;
   var statsHeight = -150;
 
-  var getRandomColor = function() {
+  var getRandomColor = function () {
     return Math.random();
   };
 
-  var getMainPersonBar = function() {
+  var getMainPersonBar = function () {
     ctx.beginPath();
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillRect(initialBarX + marginBar * i, initialBarY, barWidth, times[i] * step);
@@ -24,7 +26,7 @@ window.renderStatistics = function(ctx, names, times) {
     ctx.closePath();
   };
 
-  var getOtherPersonsBar = function() {
+  var getOtherPersonsBar = function () {
     ctx.beginPath();
     ctx.fillStyle = 'rgba(16, 7, 133, ' + getRandomColor() + ')';
     ctx.fillRect(initialBarX + marginBar * i, initialBarY, barWidth, times[i] * step);
@@ -34,9 +36,9 @@ window.renderStatistics = function(ctx, names, times) {
     ctx.closePath();
   };
 
-  var getTimesBar = function(times) {
-    for(var i = 0; i < times.length; i++) {
-      var time = times[i];
+  var getTimesBar = function (timesArr) {
+    for (var i = 0; i < timesArr.length; i++) {
+      var time = timesArr[i];
 
       if (time > maxTime) {
         maxTime = time;
@@ -68,7 +70,7 @@ window.renderStatistics = function(ctx, names, times) {
 
   step = statsHeight / (maxTime - 0);
 
-  for(var i = 0; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
       getMainPersonBar();
     } else {
