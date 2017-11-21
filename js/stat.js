@@ -12,25 +12,9 @@ window.renderStatistics = function (ctx, names, times) {
   var maxTime = -1;
   var statsHeight = -150;
 
-  var getRandomColor = function () {
-    return Math.random();
-  };
-
-  var getMainPersonBar = function () {
+  var getPersonBar = function () {
     ctx.beginPath();
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillRect(initialBarX + marginBar * i, initialBarY, barWidth, times[i] * step);
-    ctx.fill();
-    ctx.fillStyle = '#000000';
-    ctx.fillText(names[i], initialTextX + marginText * i, initialTextY);
-    ctx.closePath();
-  };
-
-  var getOtherPersonsBar = function () {
-    ctx.beginPath();
-    ctx.fillStyle = 'rgba(16, 7, 133, ' + getRandomColor() + ')';
-    ctx.fillRect(initialBarX + marginBar * i, initialBarY, barWidth, times[i] * step);
-    ctx.fill();
     ctx.fillStyle = '#000000';
     ctx.fillText(names[i], initialTextX + marginText * i, initialTextY);
     ctx.closePath();
@@ -38,11 +22,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   var getTimesBar = function (timesArr) {
     for (var i = 0; i < timesArr.length; i++) {
-      var time = timesArr[i];
-
-      if (time > maxTime) {
-        maxTime = time;
-      }
+      maxTime = Math.max(timesArr[i], maxTime);
     }
   };
 
@@ -72,9 +52,11 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
-      getMainPersonBar();
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+      getPersonBar();
     } else {
-      getOtherPersonsBar();
+      ctx.fillStyle = 'rgba(16, 7, 133, ' + Math.random() + ')';
+      getPersonBar();
     }
 
     ctx.fillText(times[i].toFixed(), initialTextX + marginText * i, times[i] * step + 230);
