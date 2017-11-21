@@ -76,7 +76,7 @@ window.renderStatistics = function (ctx, names, times) {
     } else {
       getOtherPersonsBar();
     }
-    
+
     ctx.fillText(times[i].toFixed(), initialTextX + marginText * i, times[i] * step + 230);
   }
 };
