@@ -1,8 +1,4 @@
 window.renderStatistics = function(ctx, names, times) {
-  var getRandomColor = function() {
-    return Math.random();
-  };
-
   var barWidth = 40;
   var initialBarX = 130;
   var initialBarY = 250;
@@ -10,6 +6,13 @@ window.renderStatistics = function(ctx, names, times) {
   var initialTextY = 260;
   var marginBar = 100;
   var marginText = 100;
+  var step;
+  var maxTime = -1;
+  var statsHeight = -150;
+
+  var getRandomColor = function() {
+    return Math.random();
+  };
 
   var getMainPersonBar = function() {
     ctx.beginPath();
@@ -40,7 +43,7 @@ window.renderStatistics = function(ctx, names, times) {
       }
     }
   };
-  
+
   ctx.beginPath();
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.rect(110, 20, 420, 270);
@@ -61,12 +64,9 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fillText('Список результатов:', 115, 50);
   ctx.closePath();
 
-  var maxTime = -1;
-  var statsHeight = -150;
-
   getTimesBar(times);
 
-  var step = statsHeight / (maxTime - 0);
+  step = statsHeight / (maxTime - 0);
 
   for(var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
@@ -74,5 +74,7 @@ window.renderStatistics = function(ctx, names, times) {
     } else {
       getOtherPersonsBar();
     }
+    
+    ctx.fillText(times[i].toFixed(), initialTextX + marginText * i, times[i] * step + 230);
   }
 };
