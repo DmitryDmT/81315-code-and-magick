@@ -41,7 +41,7 @@ window.renderStatistics = function (ctx, names, times) {
   step = statsHeight / (maxTime - 0);
 
   for (var i = 0; i < times.length; i++) {
-    (names[i] === 'Вы') ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(16, 7, 133, ' + Math.random() + ')';
+    ctx.fillStyle = (names[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(16, 7, 133, ' + Math.random() + ')';
     getPersonBar();
 
     ctx.fillText(times[i].toFixed(), initialTextX + marginText * i, times[i] * step + 230);
