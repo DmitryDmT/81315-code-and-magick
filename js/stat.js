@@ -13,11 +13,9 @@ window.renderStatistics = function (ctx, names, times) {
   var statsHeight = -150;
 
   var getPersonBar = function () {
-    ctx.beginPath();
     ctx.fillRect(initialBarX + marginBar * i, initialBarY, barWidth, times[i] * step);
     ctx.fillStyle = '#000000';
     ctx.fillText(names[i], initialTextX + marginText * i, initialTextY);
-    ctx.closePath();
   };
 
   var getTimesBar = function (timesArr) {
@@ -26,25 +24,17 @@ window.renderStatistics = function (ctx, names, times) {
     }
   };
 
-  ctx.beginPath();
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.rect(110, 20, 420, 270);
-  ctx.fill();
-  ctx.closePath();
+  ctx.fillRect(110, 20, 420, 270);
 
-  ctx.beginPath();
-  ctx.rect(100, 10, 420, 270);
   ctx.fillStyle = '#ffffff';
-  ctx.fill();
-  ctx.closePath();
+  ctx.fillRect(100, 10, 420, 270);
 
-  ctx.beginPath();
   ctx.fillStyle = '#000000';
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
   ctx.fillText('Ура вы победили!', 115, 30);
   ctx.fillText('Список результатов:', 115, 50);
-  ctx.closePath();
 
   getTimesBar(times);
 
