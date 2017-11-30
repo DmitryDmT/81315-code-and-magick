@@ -1,30 +1,29 @@
 'use strict';
-
-function namesCompare () {
+function namesCompare() {
   for (var nameIndex = 0; nameIndex < firstNamesArr.length; nameIndex++) {
     var randomNumber = Math.floor(Math.random() * firstNamesArr.length);
     var heroNames = firstNamesArr[randomNumber] + ' ' + secondNamesArr[randomNumber];
-    
-    return heroNames;
   }
+
+  return heroNames;
 }
 
-function colorCoatChoose () {
+function colorCoatChoose() {
   for (var colorCoatIndex = 0; colorCoatIndex < colorCoatsArr.length; colorCoatIndex++) {
     var randomColor = Math.floor(Math.random() * colorCoatsArr.length);
     var color = colorCoatsArr[randomColor];
-    
-    return color;
   }
+
+  return color;
 }
 
-function colorEyeChoose () {
+function colorEyeChoose() {
   for (var colorEyeIndex = 0; colorEyeIndex < colorEyesArr.length; colorEyeIndex++) {
     var randomColor = Math.floor(Math.random() * colorEyesArr.length);
     var color = colorEyesArr[randomColor];
-    
-    return color;
   }
+
+  return color;
 }
 
 var firstNamesArr = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
@@ -69,9 +68,9 @@ var renderWizard = function (wizard) {
   wizardPerson.querySelector('.setup-similar-label').textContent = wizard.names;
   wizardPerson.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardPerson.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
-  
+
   return wizardPerson;
-}
+};
 
 setupBlock.classList.remove('hidden');
 
