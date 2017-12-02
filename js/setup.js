@@ -12,7 +12,7 @@ var namesCompare = function () {
   }
 
   return heroNames;
-}
+};
 
 var colorCoatChoose = function () {
   for (var colorCoatIndex = 0; colorCoatIndex < colorCoatsArr.length; colorCoatIndex++) {
@@ -21,7 +21,7 @@ var colorCoatChoose = function () {
   }
 
   return color;
-}
+};
 
 var colorEyeChoose = function () {
   for (var colorEyeIndex = 0; colorEyeIndex < colorEyesArr.length; colorEyeIndex++) {
@@ -30,7 +30,7 @@ var colorEyeChoose = function () {
   }
 
   return color;
-}
+};
 
 var wizards = [];
 
