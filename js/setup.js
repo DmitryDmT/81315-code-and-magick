@@ -1,5 +1,11 @@
 'use strict';
-function namesCompare() {
+var firstNamesArr = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var secondNamesArr = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+
+var colorCoatsArr = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var colorEyesArr = ['black', 'red', 'blue', 'yellow', 'green'];
+
+var namesCompare = function () {
   for (var nameIndex = 0; nameIndex < firstNamesArr.length; nameIndex++) {
     var randomNumber = Math.floor(Math.random() * firstNamesArr.length);
     var heroNames = firstNamesArr[randomNumber] + ' ' + secondNamesArr[randomNumber];
@@ -8,7 +14,7 @@ function namesCompare() {
   return heroNames;
 }
 
-function colorCoatChoose() {
+var colorCoatChoose = function () {
   for (var colorCoatIndex = 0; colorCoatIndex < colorCoatsArr.length; colorCoatIndex++) {
     var randomColor = Math.floor(Math.random() * colorCoatsArr.length);
     var color = colorCoatsArr[randomColor];
@@ -17,7 +23,7 @@ function colorCoatChoose() {
   return color;
 }
 
-function colorEyeChoose() {
+var colorEyeChoose = function () {
   for (var colorEyeIndex = 0; colorEyeIndex < colorEyesArr.length; colorEyeIndex++) {
     var randomColor = Math.floor(Math.random() * colorEyesArr.length);
     var color = colorEyesArr[randomColor];
@@ -26,34 +32,15 @@ function colorEyeChoose() {
   return color;
 }
 
-var firstNamesArr = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var secondNamesArr = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var wizards = [];
 
-var colorCoatsArr = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var colorEyesArr = ['black', 'red', 'blue', 'yellow', 'green'];
-
-var wizards = [
-  {
+for (var i = 0; i < 4; i++) {
+  wizards[i] = {
     names: namesCompare(),
     coatColor: colorCoatChoose(),
     eyesColor: colorEyeChoose()
-  },
-  {
-    names: namesCompare(),
-    coatColor: colorCoatChoose(),
-    eyesColor: colorEyeChoose()
-  },
-  {
-    names: namesCompare(),
-    coatColor: colorCoatChoose(),
-    eyesColor: colorEyeChoose()
-  },
-  {
-    names: namesCompare(),
-    coatColor: colorCoatChoose(),
-    eyesColor: colorEyeChoose()
-  }
-];
+  };
+}
 
 var setupBlock = document.querySelector('.setup');
 
