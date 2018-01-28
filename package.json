@@ -13,8 +13,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.23.6",
     "eslint": "4.2.0",
-    "eslint-config-htmlacademy": "0.3.x"
+    "eslint-config-htmlacademy": "0.3.x",
+    "gulp": "^3.9.1"
   },
   "dependencies": {},
   "scripts": {
